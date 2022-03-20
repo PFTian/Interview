@@ -26,15 +26,15 @@ const config = {
           // Please change this to your repo.
           editUrl: 'https://github.com/PFTian/Interview/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   // Please change this to your repo.
+        //   editUrl:
+        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        // },
+        // theme: {
+        //   customCss: require.resolve('./src/css/custom.css'),
+        // },
       }),
     ],
   ],
@@ -81,8 +81,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'React',
+                to: '/docs/react/questions',
               },
             ],
           },
