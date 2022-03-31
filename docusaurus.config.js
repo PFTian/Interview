@@ -51,6 +51,12 @@ const config = {
         items: [
           {
             type: 'doc',
+            docId: 'languages/javascript',
+            position: 'left',
+            label: 'Languages'
+          },
+          {
+            type: 'doc',
             docId: 'react/questions',
             position: 'left',
             label: 'React',

@@ -18,47 +18,51 @@ const sidebars = {
 
   // But you can create a sidebar manually
 
+  languageSidebar: [
+    {
+      type: "doc",
+      id: 'languages/java',
+      label: 'Java'
+    },
+    {
+      type: "doc",
+      id: 'languages/javascript',
+      label: 'Javascript'
+    },
+  ],
   reactSidebar: [
     {
-      type: "category",
-      label: "React",
-      items: [
-        "react/questions",
-      ],
+      type: 'category',
+      label: 'React',
+      items: ['react/questions'],
     },
     {
-      type: "category",
-      label: "React Native",
-      items: [
-        "react/react-native/questions",
-      ],
+      type: 'category',
+      label: 'React Native',
+      items: ['react/react-native/questions'],
     },
     {
-      type: "category",
-      label: "ReactJS",
-      items: [
-        "react/reactjs/questions",
-      ],
+      type: 'category',
+      label: 'ReactJS',
+      items: ['react/reactjs/questions'],
     },
     {
-      type: "category",
-      label: "Redux",
-      items: [
-        "react/redux/questions",
-      ],
+      type: 'category',
+      label: 'Redux',
+      items: ['react/redux/questions'],
     },
   ],
   javaSpringBootSidebar: [
     {
-      type: "category",
-      label: "Java Spring Boot",
-      items: ["java-spring-boot/questions"],
+      type: 'category',
+      label: 'Java Spring Boot',
+      items: ['java-spring-boot/questions'],
     },
   ],
   otherSidebar: [
     {
-      type: "doc",
-      id: "others/REST",
+      type: 'doc',
+      id: 'others/REST',
     },
   ],
 };
