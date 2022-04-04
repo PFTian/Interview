@@ -22,9 +22,33 @@
 
    `isNan` function returns true if the argument is not a number; otherwise, it is false.
 
-5. What is a strict equality operator in JavaScript?
+5. What is the difference between == and === operators?
 
-   The strict equality operator `(===)` checks whether its two operands are equal, returning a Boolean result. Unlike the equality operator, the strict equality operator always considers operands of different types to be different.
+   JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The strict operators takes type of variable in consideration, while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
+
+   1. Two strings are strictly equal when they have the same sequence of characters, same length, and same characters in corresponding positions.
+
+   2. Two numbers are strictly equal when they are numerically equal. i.e, Having the same number value. There are two special cases in this,
+      1. NaN is not equal to anything, including NaN.
+      2. Positive and negative zeros are equal to one another.
+   3. Two Boolean operands are strictly equal if both are true or both are false.
+   4. Two objects are strictly equal if they refer to the same Object.
+   5. Null and Undefined types are not equal with ===, but equal with ==. i.e, null===undefined --> false but null==undefined --> true
+
+   Some of the example which covers the above cases
+
+   ```javascript
+   0 == false   // true
+   0 === false  // false
+   1 == "1"     // true
+   1 === "1"    // false
+   null == undefined // true
+   null === undefined // false
+   '0' == false // true
+   '0' === false // false
+   []==[] or []===[] //false, refer different objects in memory
+   {}=={} or {}==={} //false, refer different objects in memory
+   ```
 
 6. In JavaScript, it is possible for the programmers to convert the string to an integer?
 
@@ -46,4 +70,122 @@
 
    This task can be done simply with the help of an operator and i.e. Delete. Although it deletes all the variables, as well as the objects in a program it’s is not possible for this operator to delete those objects and variables that are declared already with the VAR keyword. For deleting these variables, another command is to be followed. Any number of other variables can be deleted with this operator. It is also possible to erase a specific portion of coding simply and without accessing any other command for this.
 
+9. What is a prototype chain
 
+   Prototype chaining is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language.
+
+   The prototype on object instance is available through Object.getPrototypeOf(object) or proto property whereas prototype on constructors function is available through Object.prototype.
+
+10. What is JSON and its common operations
+
+    JSON is a text-based data format following JavaScript object syntax, which was popularized by Douglas Crockford. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
+
+    Parsing: Converting a string to a native object
+
+    ```javascript
+    JSON.parse(text);
+    ```
+
+    Stringification: converting a native object to a string so it can be transmitted across the network
+
+    ```javascript
+    JSON.stringify(object);
+    ```
+
+11. What is the purpose of the array slice method
+
+    The slice() method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end.
+
+    ```javascript
+    let arrayIntegers = [1, 2, 3, 4, 5];
+    let arrayIntegers1 = arrayIntegers.slice(0, 2); // returns [1,2]
+    let arrayIntegers2 = arrayIntegers.slice(2, 3); // returns [3]
+    let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
+    ```
+
+    Note: Slice method won't mutate the original array but it returns the subset as a new array.
+
+12. What is the purpose of the array splice method.
+
+    The splice() method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the optional second argument indicates the number of elements to be deleted. Each additional argument is added to the array.
+
+    Some of the examples of this method are,
+
+    ```javascript
+    let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
+    let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
+    let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
+
+    let arrayIntegers1 = arrayIntegersOriginal1.splice(0, 2); // returns [1, 2]; original array: [3, 4, 5]
+    let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
+    let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, 'a', 'b', 'c'); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
+    ```
+
+    Note: Splice method modifies the original array and returns the deleted array.
+
+13. What is the difference between slice and splice
+
+    | slice                                        | splice                                          |
+    | -------------------------------------------- | ----------------------------------------------- |
+    | Doesn't modify the original array(immutable) | Modifies the original array(mutable)            |
+    | Returns the subset of original array         | Returns the deleted elements as array           |
+    | Used to pick the elements from array         | Used to insert or delete elements to/from array |
+
+14. How do you compare Object and Map
+
+    Objects are similar to Maps in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
+
+    1. The keys of an Object are Strings and Symbols, whereas they can be any value for a Map, including functions, objects, and any primitive.
+    2. The keys in Map are ordered while keys added to object are not. Thus, when iterating over it, a Map object returns keys in order of insertion.
+    3. You can get the size of a Map easily with the size property, while the number of properties in an Object must be determined manually.
+    4. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object requires obtaining its keys in some fashion and iterating over them.
+    5. An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
+    6. A Map may perform better in scenarios involving frequent addition and removal of key pairs.
+
+15. What are lambda or arrow functions?
+
+    An arrow function expression is a compact alternative to a traditional function expression, but is limited and can't be used in all situations.
+
+    There are differences between arrow functions and traditional functions, as well as some limitations:
+
+    - Arrow functions don't have their own bindings to this or super, and should not be used as methods.
+    - Arrow functions don't have access to the new.target keyword.
+    - Arrow functions aren't suitable for call, apply and bind methods, which generally rely on establishing a scope.
+    - Arrow functions cannot be used as constructors.
+    - Arrow functions cannot use yield, within its body.
+
+16. What is a first class function?
+
+    A programming language is said to have First-class functions when functions in that language are treated like any other variable. For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable.
+
+17. What is a first order function?
+
+    First-order function is a function that doesn’t accept other function as an argument and doesn’t return a function as its return value.
+
+18. What is a higher order function?
+
+    Higher-order function is a function that accepts ot her function as an argument or returns a function as a return value.
+
+19. What is a unary function?
+
+    Unary function (i.e. monadic) is a function that accepts exactly one argument.
+
+20. What is currying function?
+
+    Currying is the transformation of a function with multiple arguments into a sequence of single-argument functions. That means converting a function like this `f(a, b, c, ...)` into a function like this `f(a)(b)(c)`
+
+21. What is the purpose of `let` keyword?
+
+    The `let` statement declares a block scope local variable. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the var keyword used to define a variable globally, or locally to an entire function regardless of block scope.
+
+22. What is the difference between `let` and `var`
+
+    | let                                                                    | var                                           |
+    | ---------------------------------------------------------------------- | --------------------------------------------- |
+    | It has been available from the beginning of JavaScript                 | Introduced as part of ES6                     |
+    | It has function scope                                                  | It has block scope                            |
+    | Variables will be hoisted (initialized with undefined before code run) | Hoisted but not initialized (ReferenceError)) |
+
+    PS: `Hoisting` is the process of setting up of memory space for our variables and functions. Before the code starts to execute, the JS engine goes thru the code and sets up blocks of memory for functions and variables. The values of variables are not stored but functions are stored entirely along with their definitions.
+
+23.
