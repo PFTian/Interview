@@ -188,4 +188,229 @@
 
     PS: `Hoisting` is the process of setting up of memory space for our variables and functions. Before the code starts to execute, the JS engine goes thru the code and sets up blocks of memory for functions and variables. The values of variables are not stored but functions are stored entirely along with their definitions.
 
-23.
+23. How do you redeclare variables in switch block without an error?
+
+    ```javascript
+    let counter = 1;
+    switch (x) {
+      case 0:
+        let name;
+        break;
+
+      case 1:
+        let name; // SyntaxError for redeclaration.
+        break;
+    }
+    ```
+
+    To avoid this error, you can create a nested block inside a case clause will create a new block scoped lexical environment.
+
+    ```javascript
+    let counter = 1;
+    switch (x) {
+      case 0: {
+        let name;
+        break;
+      }
+      case 1: {
+        let name; // No SyntaxError for redeclaration.
+        break;
+      }
+    }
+    ```
+
+24. What is the Temporal Dead Zone?
+
+    The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a let or const variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone.
+
+25. What is IIFE(Immediately Invoked Function Expression)?
+
+    IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below,
+
+    ```javascript
+    (function () {
+      // logic here
+    })();
+    ```
+
+    The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be accessed by the outside world. i.e, If you try to access variables with IIFE then it throws an error as below,
+
+    ```javascript
+    (function () {
+      var message = 'IIFE';
+      console.log(message);
+    })();
+    console.log(message); //Error: message is not defined
+    ```
+
+26. How do you decode or encode a URL in JavaScript?
+
+    encodeURI() function is used to encode an URL. This function requires a URL string as a parameter and return that encoded string. decodeURI() function is used to deocde an URL. This function requires an encoded URL string as parameter and return that decoded string.
+
+    **Note:** If you want to encode characters such as / ? : @ & = + $ # then you need to use encodeURIComponent().
+
+27. What is memoization?
+
+    Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results. Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache. Let's take an example of adding function with memoization,
+
+    ```javascript
+    const memoizAddition = () => {
+      let cache = {};
+      return (value) => {
+        if (value in cache) {
+          console.log('Fetching from cache');
+          return cache[value]; // Here, cache.value cannot be used as property name starts with the number which is not valid JavaScript  identifier. Hence, can only be accessed using the square bracket notation.
+        } else {
+          console.log('Calculating result');
+          let result = value + 20;
+          cache[value] = result;
+          return result;
+        }
+      };
+    };
+    // returned function from memoizAddition
+    const addition = memoizAddition();
+    console.log(addition(20)); //output: 40 calculated
+    console.log(addition(20)); //output: 40 cached
+    ```
+
+28. What is Hoisting?
+
+    JavaScript Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
+
+    Hoisting allows functions to be safely used in code before they are declared.
+
+29. What are classes in ES6?
+
+    Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are not shared with ES5 class-like semantics.
+
+30. What is hoisting difference between function declarations and class ddeclarations?
+
+    An important difference between function declarations and class declarations is that while functions can be called in code that appears before they are defined, classes must be defined before they can be constructed. Code like the following will throw a ReferenceError.
+
+    ```javascript
+    const p = new Rectangle(); // ReferenceError
+    class Rectangle {}
+    ```
+
+    This occurs because while the class is hoisted its values are not initialized.
+
+31. What are closures?
+
+    A closure is a function that references variables in the outer scope from its inner scope. The closure preserves the outer scope inside its inner scope
+
+    More [detailed explanation](https://www.javascripttutorial.net/javascript-closure/#:~:text=In%20JavaScript%2C%20a%20closure%20is,the%20lexical%20scoping%20works%20first.) for closures.
+
+    A closure is a combination of a function and its ability to remember variables in the outer scope.
+
+32. What is scope in javascript?
+
+    Scope is the accessibility of variables, functions, and objects in some particular part of your code during runtime. In other words, scope determines the visibility of variables and other resources in areas of your code.
+
+33. What is scope in javascript?
+
+    A Service worker is basically a script (JavaScript file) that runs in background, separate from a web page and provide features that don't need a web page or user interaction. Some of the major features of service workers are Rich offline experiences(offline first web application development), periodic background syncs, push notifications, intercept and handle network requests and programmatically managing a cache of responses.
+
+34. How do you manipulate DOM using service worker?
+
+    Service worker can't access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the postMessage interface, and those pages can manipulate the DOM.
+
+35. What is IndexedDB?
+
+    IndexedDB is a low-level API for client-side storage of larger amounts of structured data, including files/blobs. This API uses indexes to enable high-performance searches of this data.
+
+36. What is a promise?
+
+    A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
+
+    The syntax of promise would be as below,
+
+    ```javascript
+    const promise = new Promise(function (resolve, reject) {
+      // promise description
+    });
+    ```
+
+37. Why do you need a promise?
+
+    Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
+
+38. What are the three states of promise?
+
+    - **Pending:** This is an initial state of the Promise before an operation begins.
+    - **Fulfilled:** This state indicates that specified operation was completed.
+    - **Rejected:** This state indicates that the operation did not complete. In this case an error value will be thrown.
+
+39. What is a callback function?
+
+    A callback function is a function passed into another function as an argument. This function is invoked inside the outer function to complete an action.
+    Let's take a simple example of how to use callback function
+
+    ```javascript
+    function callbackFunction(name) {
+      console.log('Hello ' + name);
+    }
+
+    function outerFunction(callback) {
+      let name = prompt('Please enter your name.');
+      callback(name);
+    }
+
+    outerFunction(callbackFunction);
+    ```
+
+40. What are the main rules of promise?
+
+    A promise must follow a specific set of rules,
+
+    1. A promise is an object that supplies a standard-compliant `.then()` method
+    2. A pending promise may transition into either fulfilled or rejected state
+    3. A fulfilled or rejected promise is settled and it must not transition into any other state.
+    4. Once a promise is settled, the value must not change.
+
+41. Why do we need callbacks?
+
+    The callbacks are needed because javascript is a event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
+    Let's take an example with first function invoking an API call(simulated by setTimeout) and next function which logs the message.
+
+    ```javascript
+    function firstFunction() {
+      // Simulate a code delay
+      setTimeout(function () {
+        console.log('First function called');
+      }, 1000);
+    }
+    function secondFunction() {
+      console.log('Second function called');
+    }
+    firstFunction();
+    secondFunction();
+
+    Output;
+    // Second function called
+    // First function called
+    ```
+
+    As observed from the output, javascript didn't wait for the response of first function and remaining code block get executed. So callbacks used in a way to make sure that certain code doesn’t execute until other code finished execution.
+
+42. What is a callback hell?
+
+    Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
+
+    ```javascript
+    async1(function(){
+        async2(function(){
+            async3(function(){
+                async4(function(){
+                    ....
+                });
+            });
+        });
+    });
+    ```
+
+43. What are server-sent events?
+
+    Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This has been used in Facebook/Twitter updates, stock price updates, news feeds etc.
+
+44.
