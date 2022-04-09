@@ -51,7 +51,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'languages/javascript',
+            docId: 'languages/javascript/index',
             position: 'left',
             label: 'Languages'
           },

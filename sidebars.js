@@ -20,14 +20,19 @@ const sidebars = {
 
   languageSidebar: [
     {
-      type: "doc",
-      id: 'languages/java',
-      label: 'Java'
+      type: 'category',
+      label: 'Javascript',
+      items: [
+        'languages/javascript/index',
+        'languages/javascript/promise',
+        'languages/javascript/json',
+        'languages/javascript/callback',
+      ],
     },
     {
-      type: "doc",
-      id: 'languages/javascript',
-      label: 'Javascript'
+      type: 'doc',
+      id: 'languages/java',
+      label: 'Java',
     },
   ],
   reactSidebar: [

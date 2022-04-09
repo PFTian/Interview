@@ -1,80 +1,80 @@
 # Javascript Interview Questions
 
-1. What is javascript
+1.  What is javascript
 
-   JavaScript is a client-side and server-side scripting language inserted into HTML pages and is understood by web browsers. JavaScript is also an Object-based Programming language.
+    JavaScript is a client-side and server-side scripting language inserted into HTML pages and is understood by web browsers. JavaScript is also an Object-based Programming language.
 
-2. Enumerate the differences between Java and JavaScript?
+2.  Enumerate the differences between Java and JavaScript?
 
-   Java is a complete programming language. In contrast, JavaScript is a coded program that can be introduced to HTML pages. These two languages are not at all inter-dependent and are designed for different intent. Java is an object-oriented programming (OOPS) or structured programming languages like C++ or C, whereas JavaScript is a client-side scripting language.
+    Java is a complete programming language. In contrast, JavaScript is a coded program that can be introduced to HTML pages. These two languages are not at all inter-dependent and are designed for different intent. Java is an object-oriented programming (OOPS) or structured programming languages like C++ or C, whereas JavaScript is a client-side scripting language.
 
-3. What are JavaScript Data Types?
+3.  What are JavaScript Data Types?
 
-   Following are the JavaScript Data types:
+    Following are the JavaScript Data types:
 
-   - Number
-   - String
-   - Boolean
-   - Object
-   - Undefined
+    - Number
+    - String
+    - Boolean
+    - Object
+    - Undefined
 
-4. What is the use of isNaN function?
+4.  What is the use of isNaN function?
 
-   `isNan` function returns true if the argument is not a number; otherwise, it is false.
+    `isNan` function returns true if the argument is not a number; otherwise, it is false.
 
-5. What is the difference between == and === operators?
+5.  What is the difference between == and === operators?
 
-   JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The strict operators takes type of variable in consideration, while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
+    JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The strict operators takes type of variable in consideration, while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
 
-   1. Two strings are strictly equal when they have the same sequence of characters, same length, and same characters in corresponding positions.
+    1. Two strings are strictly equal when they have the same sequence of characters, same length, and same characters in corresponding positions.
 
-   2. Two numbers are strictly equal when they are numerically equal. i.e, Having the same number value. There are two special cases in this,
-      1. NaN is not equal to anything, including NaN.
-      2. Positive and negative zeros are equal to one another.
-   3. Two Boolean operands are strictly equal if both are true or both are false.
-   4. Two objects are strictly equal if they refer to the same Object.
-   5. Null and Undefined types are not equal with ===, but equal with ==. i.e, null===undefined --> false but null==undefined --> true
+    2. Two numbers are strictly equal when they are numerically equal. i.e, Having the same number value. There are two special cases in this,
+       1. NaN is not equal to anything, including NaN.
+       2. Positive and negative zeros are equal to one another.
+    3. Two Boolean operands are strictly equal if both are true or both are false.
+    4. Two objects are strictly equal if they refer to the same Object.
+    5. Null and Undefined types are not equal with ===, but equal with ==. i.e, null===undefined --> false but null==undefined --> true
 
-   Some of the example which covers the above cases
+    Some of the example which covers the above cases
 
-   ```javascript
-   0 == false   // true
-   0 === false  // false
-   1 == "1"     // true
-   1 === "1"    // false
-   null == undefined // true
-   null === undefined // false
-   '0' == false // true
-   '0' === false // false
-   []==[] or []===[] //false, refer different objects in memory
-   {}=={} or {}==={} //false, refer different objects in memory
-   ```
+    ```javascript
+    0 == false   // true
+    0 === false  // false
+    1 == "1"     // true
+    1 === "1"    // false
+    null == undefined // true
+    null === undefined // false
+    '0' == false // true
+    '0' === false // false
+    []==[] or []===[] //false, refer different objects in memory
+    {}=={} or {}==={} //false, refer different objects in memory
+    ```
 
-6. In JavaScript, it is possible for the programmers to convert the string to an integer?
+6.  In JavaScript, it is possible for the programmers to convert the string to an integer?
 
-   Yes, this can be done easily in JavaScript. For this, the function parseInt() is used. It generally takes the string into the first parameter and then to the next parameter which is considered as the base of given string.
+    Yes, this can be done easily in JavaScript. For this, the function parseInt() is used. It generally takes the string into the first parameter and then to the next parameter which is considered as the base of given string.
 
-7. Name the two basic groups of data types in JavaScript?
+7.  Name the two basic groups of data types in JavaScript?
 
-   - Reference types
-     - Objects
-     - Arrays
-     - Functions
-   - Primitive
-     - Numbers
-     - Boolean
-     - Null
-     - Undefined
+    - Reference types
+      - Objects
+      - Arrays
+      - Functions
+    - Primitive
+      - Numbers
+      - Boolean
+      - Null
+      - Undefined
 
-8. In a program, how can you delete the variables? Is there any limit on deletion?
+8.  In a program, how can you delete the variables? Is there any limit on deletion?
 
-   This task can be done simply with the help of an operator and i.e. Delete. Although it deletes all the variables, as well as the objects in a program it’s is not possible for this operator to delete those objects and variables that are declared already with the VAR keyword. For deleting these variables, another command is to be followed. Any number of other variables can be deleted with this operator. It is also possible to erase a specific portion of coding simply and without accessing any other command for this.
+    This task can be done simply with the help of an operator and i.e. Delete. Although it deletes all the variables, as well as the objects in a program it’s is not possible for this operator to delete those objects and variables that are declared already with the VAR keyword. For deleting these variables, another command is to be followed. Any number of other variables can be deleted with this operator. It is also possible to erase a specific portion of coding simply and without accessing any other command for this.
 
-9. What is a prototype chain
+9.  What is a prototype chain
 
-   Prototype chaining is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language.
+    Prototype chaining is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language.
 
-   The prototype on object instance is available through Object.getPrototypeOf(object) or proto property whereas prototype on constructors function is available through Object.prototype.
+    The prototype on object instance is available through Object.getPrototypeOf(object) or proto property whereas prototype on constructors function is available through Object.prototype.
 
 10. What is JSON and its common operations
 
@@ -319,29 +319,7 @@
 
     IndexedDB is a low-level API for client-side storage of larger amounts of structured data, including files/blobs. This API uses indexes to enable high-performance searches of this data.
 
-36. What is a promise?
-
-    A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
-
-    The syntax of promise would be as below,
-
-    ```javascript
-    const promise = new Promise(function (resolve, reject) {
-      // promise description
-    });
-    ```
-
-37. Why do you need a promise?
-
-    Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
-
-38. What are the three states of promise?
-
-    - **Pending:** This is an initial state of the Promise before an operation begins.
-    - **Fulfilled:** This state indicates that specified operation was completed.
-    - **Rejected:** This state indicates that the operation did not complete. In this case an error value will be thrown.
-
-39. What is a callback function?
+36. What is a callback function?
 
     A callback function is a function passed into another function as an argument. This function is invoked inside the outer function to complete an action.
     Let's take a simple example of how to use callback function
@@ -359,16 +337,7 @@
     outerFunction(callbackFunction);
     ```
 
-40. What are the main rules of promise?
-
-    A promise must follow a specific set of rules,
-
-    1. A promise is an object that supplies a standard-compliant `.then()` method
-    2. A pending promise may transition into either fulfilled or rejected state
-    3. A fulfilled or rejected promise is settled and it must not transition into any other state.
-    4. Once a promise is settled, the value must not change.
-
-41. Why do we need callbacks?
+37. Why do we need callbacks?
 
     The callbacks are needed because javascript is a event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
     Let's take an example with first function invoking an API call(simulated by setTimeout) and next function which logs the message.
@@ -393,7 +362,7 @@
 
     As observed from the output, javascript didn't wait for the response of first function and remaining code block get executed. So callbacks used in a way to make sure that certain code doesn’t execute until other code finished execution.
 
-42. What is a callback hell?
+38. What is a callback hell?
 
     Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
 
@@ -409,8 +378,203 @@
     });
     ```
 
-43. What are server-sent events?
+39. What are server-sent events?
 
     Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This has been used in Facebook/Twitter updates, stock price updates, news feeds etc.
 
-44.
+40. What is a strict mode in javascript?
+
+    Strict Mode is a new feature in ECMAScript 5 that allows you to place a program, or a function, in a “strict” operating context. This way it prevents certain actions from being taken and throws more exceptions. The literal expression `"use strict"`; instructs the browser to use the javascript code in the Strict mode.
+
+41. Why do you need strict mode?
+
+    Strict mode is useful to write "secure" JavaScript by notifying "bad syntax" into real errors. For example, it eliminates accidentally creating a global variable by throwing an error and also throws an error for assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object.
+
+42. How do you declare strict mode?
+
+    The strict mode is declared by adding "use strict"; to the beginning of a script or a function. If declared at the beginning of a script, it has global scope.
+
+    ```javascript
+    'use strict';
+    x = 3.14; // This will cause an error because x is not declared
+    ```
+
+    and if you declare inside a function, it has local scope
+
+    ```javascript
+    x = 3.14; // This will not cause an error.
+    myFunction();
+
+    function myFunction() {
+      'use strict';
+      y = 3.14; // This will cause an error
+    }
+    ```
+
+43. What is the purpose of double exclamation?
+
+    The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, true. For example, you can test IE version using this expression as below,
+
+    ```javascript
+    let isIE8 = false;
+    isIE8 = !!navigator.userAgent.match(/MSIE 8.0/);
+    console.log(isIE8); // returns true or false
+    ```
+
+    If you don't use this expression then it returns the original value.
+
+    ```javascript
+    console.log(navigator.userAgent.match(/MSIE 8.0/)); // returns either an Array or null
+    ```
+
+    **Note:** The expression !! is not an operator, but it is just twice of ! operator.
+
+44. What is the purpose of the delete operator?
+
+    The delete keyword is used to delete the property as well as its value.
+
+    ```javascript
+    var user = { name: 'John', age: 20 };
+    delete user.age;
+
+    console.log(user); // {name: "John"}
+    ```
+
+45. What is the typeof operator?
+
+    You can use the JavaScript typeof operator to find the type of a JavaScript variable. It returns the type of a variable or an expression.
+
+    ```javascript
+    typeof 'John Abraham'; // Returns "string"
+    typeof (1 + 2); // Returns "number"
+    ```
+
+46. What is undefined property?
+
+    The undefined property indicates that a variable has not been assigned a value, or not declared at all. The type of undefined value is undefined too.
+
+    ```javascript
+    var user; // Value is undefined, type is undefined
+    console.log(typeof user); //undefined
+    ```
+
+    Any variable can be emptied by setting the value to undefined.
+
+    ```javascript
+    user = undefined;
+    ```
+
+47. What is null value?
+
+    The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values. The type of null value is object. You can empty the variable by setting the value to null.
+
+    ```javascript
+    var user = null;
+    console.log(typeof user); //object
+    ```
+
+48. What is the difference between null and undefined?
+
+    Below are the main differences between null and undefined,
+
+    | Null                                                                                            | Undefined                                                                                               |
+    | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+    | It is an assignment value which indicates that variable points to no object.                    | It is not an assignment value where a variable has been declared but has not yet been assigned a value. |
+    | Type of null is object                                                                          | Type of undefined is undefined                                                                          |
+    | The null value is a primitive value that represents the null, empty, or non-existent reference. | The undefined value is a primitive value used when a variable has not been assigned a value.            |
+    | Indicates the absence of a value for a variable                                                 | Indicates absence of variable itself                                                                    |
+    | Converted to zero (0) while performing primitive operations                                     | Converted to NaN while performing primitive operations                                                  |
+
+49. What is eval?
+
+    The eval() function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
+
+    ```javascript
+    console.log(eval('1 + 2')); //  3
+    ```
+
+50. What is isNaN?
+
+    The isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.
+
+    ```javascript
+    isNaN('Hello'); //true
+    isNaN('100'); //false
+    ```
+
+51. What is NaN property?
+
+    The NaN property is a global property that represents "Not-a-Number" value. i.e, It indicates that a value is not a legal number. It is very rare to use NaN in a program but it can be used as return value for few cases
+
+    ```javascript
+    Math.sqrt(-1);
+    parseInt('Hello');
+    ```
+
+52. What is the purpose of isFinite function?
+    The isFinite() function is used to determine whether a number is a finite, legal number. It returns false if the value is +infinity, -infinity, or NaN (Not-a-Number), otherwise it returns true.
+
+    ```javascript
+    isFinite(Infinity); // false
+    isFinite(NaN); // false
+    isFinite(-Infinity); // false
+
+    isFinite(100); // true
+    ```
+
+53. What are the tools or techniques used for debugging JavaScript code?
+
+    You can use below tools or techniques for debugging javascript
+
+    1. Chrome Devtools
+    2. debugger statement
+    3. Good old console.log statement
+
+54. What is the difference between an attribute and a property?
+
+    ```javascript
+    <input type="text" value="Name:">
+    ```
+
+    You can retrieve the attribute value as below,
+
+    ```javascript
+    const input = document.querySelector('input');
+    console.log(input.getAttribute('value')); // Good morning
+    console.log(input.value); // Good morning
+    ```
+
+    And after you change the value of the text field to "Good evening", it becomes like
+
+    ```javascript
+    console.log(input.getAttribute('value')); // Good morning
+    console.log(input.value); // Good evening
+    ```
+
+55. What is same-origin policy?
+
+    The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
+
+56. What is the use of preventDefault method?
+
+    The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyperlink are some common use cases.
+
+    ```javascript
+    document.getElementById('link').addEventListener('click', function (event) {
+      event.preventDefault();
+    });
+    ```
+
+    **Note:** Remember that not all events are cancelable.
+
+57. Why is JavaScript treated as Single threaded?
+
+    JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it in parallel in multiple threads or processes. Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
+
+58. What is ECMAScript?
+
+    ECMAScript is the scripting language that forms the basis of JavaScript. ECMAScript standardized by the ECMA International standards organization in the ECMA-262 and ECMA-402 specifications. The first edition of ECMAScript was released in 1997.
+
+59. What is JSON?
+
+    JSON (JavaScript Object Notation) is a lightweight format that is used for data interchanging. It is based on a subset of JavaScript language in the way objects are built in JavaScript.
