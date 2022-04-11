@@ -61,10 +61,13 @@
       - Arrays
       - Functions
     - Primitive
-      - Numbers
+      - String
+      - Number
       - Boolean
       - Null
       - Undefined
+      - Bigint
+      - Symbol
 
 8.  In a program, how can you delete the variables? Is there any limit on deletion?
 
@@ -972,3 +975,302 @@
 
     console.log(Object.keys(user)); //['name', 'gender', 'age']
     ```
+
+93. How do you create an object with prototype?
+
+    The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses an existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
+
+    ```javascript
+    const user = {
+      name: 'John',
+      printInfo: function () {
+        console.log(`My name is ${this.name}.`);
+      },
+    };
+
+    const admin = Object.create(user);
+
+    admin.name = 'Nick'; // Remember that "name" is a property set on "admin" but not on "user" object
+
+    admin.printInfo(); // My name is Nick
+    ```
+
+94. What is a WeakSet?
+
+    WeakSet is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,
+
+    ```javascript
+    new WeakSet([iterable]);
+    ```
+
+    Let's see the below example to explain it's behavior,
+
+    ```javascript
+    var ws = new WeakSet();
+    var user = {};
+    ws.add(user);
+    ws.has(user); // true
+    ws.delete(user); // removes user from the set
+    ws.has(user); // false, user has been removed
+    ```
+
+95. What are the differences between WeakSet and Set?
+
+    The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. i.e, An object in WeakSet can be garbage collected if there is no other reference to it.
+    Other differences are,
+
+    1.  Sets can store any value Whereas WeakSets can store only collections of objects
+    2.  WeakSet does not have size property unlike Set
+    3.  WeakSet does not have methods such as clear, keys, values, entries, forEach.
+    4.  WeakSet is not iterable.
+
+96. Below are the list of methods available on WeakSet,
+
+    1.  add(value): A new object is appended with the given value to the weakset
+    2.  delete(value): Deletes the value from the WeakSet collection.
+    3.  has(value): It returns true if the value is present in the WeakSet Collection, otherwise it returns false.
+
+    Let's see the functionality of all the above methods in an example,
+
+    ```javascript
+    var weakSetObject = new WeakSet();
+    var firstObject = {};
+    var secondObject = {};
+    // add(value)
+    weakSetObject.add(firstObject);
+    weakSetObject.add(secondObject);
+    console.log(weakSetObject.has(firstObject)); //true
+    weakSetObject.delete(secondObject);
+    ```
+
+97. What is a WeakMap
+
+    The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax is looking like as below,
+
+    ```javascript
+    new WeakMap([iterable]);
+    ```
+
+    Let's see the below example to explain it's behavior,
+
+    ```javascript
+    var ws = new WeakMap();
+    var user = {};
+    ws.set(user);
+    ws.has(user); // true
+    ws.delete(user); // removes user from the map
+    ws.has(user); // false, user has been removed
+    ```
+
+98. What are the differences between WeakMap and Map
+
+    The main difference is that references to key objects in Map are strong while references to key objects in WeakMap are weak. i.e, A key object in WeakMap can be garbage collected if there is no other reference to it.
+    Other differences are,
+
+    1.  Maps can store any key type Whereas WeakMaps can store only collections of key objects
+    2.  WeakMap does not have size property unlike Map
+    3.  WeakMap does not have methods such as clear, keys, values, entries, forEach.
+    4.  WeakMap is not iterable.
+
+99. List down the collection of methods available on WeakMap
+
+    Below are the list of methods available on WeakMap,
+
+    1.  set(key, value): Sets the value for the key in the WeakMap object. Returns the WeakMap object.
+    2.  delete(key): Removes any value associated to the key.
+    3.  has(key): Returns a Boolean asserting whether a value has been associated to the key in the WeakMap object or not.
+    4.  get(key): Returns the value associated to the key, or undefined if there is none.
+        Let's see the functionality of all the above methods in an example,
+
+    ```javascript
+    var weakMapObject = new WeakMap();
+    var firstObject = {};
+    var secondObject = {};
+    // set(key, value)
+    weakMapObject.set(firstObject, 'John');
+    weakMapObject.set(secondObject, 100);
+    console.log(weakMapObject.has(firstObject)); //true
+    console.log(weakMapObject.get(firstObject)); // John
+    weakMapObject.delete(secondObject);
+    ```
+
+100.  What is the purpose of uneval?
+
+      The uneval() is an inbuilt function which is used to create a string representation of the source code of an Object. It is a top-level function and is not associated with any object. Let's see the below example to know more about it's functionality,
+
+      ```javascript
+      var a = 1;
+      uneval(a); // returns a String containing 1
+      uneval(function user() {}); // returns "(function user(){})"
+      ```
+
+101.  What is the difference between uneval and eval?
+
+      The `uneval` function returns the source of a given object; whereas the `eval` function does the opposite, by evaluating that source code in a different memory area. Let's see an example to clarify the difference,
+
+      ```javascript
+      var msg = uneval(function greeting() {
+        return 'Hello, Good morning';
+      });
+      var greeting = eval(msg);
+      greeting(); // returns "Hello, Good morning"
+      ```
+
+102.  What is an anonymous function?
+
+      An anonymous function is a function without a name! Anonymous functions are commonly assigned to a variable name or used as a callback function. The syntax would be as below,
+
+      ```javascript
+      function (optionalParameters) {
+        //do something
+      }
+
+      const myFunction = function(){ //Anonymous function assigned to a variable
+        //do something
+      };
+
+      [1, 2, 3].map(function(element){ //Anonymous function used as a callback function
+        //do something
+      });
+      ```
+
+      Let's see the above anonymous function in an example,
+
+      ```javascript
+      var x = function (a, b) {
+        return a * b;
+      };
+      var z = x(5, 10);
+      console.log(z); // 50
+      ```
+
+103.  What is the precedence order between local and global variables?
+
+      A local variable takes precedence over a global variable with the same name. Let's see this behavior in an example.
+
+      ```javascript
+      var msg = 'Good morning';
+      function greeting() {
+        msg = 'Good Evening';
+        console.log(msg);
+      }
+      greeting();
+      ```
+
+104.  What are javascript accessors?
+
+      ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses the get keyword whereas Setters uses the set keyword.
+
+      ```javascript
+      var user = {
+        firstName: 'John',
+        lastName: 'Abraham',
+        language: 'en',
+        get lang() {
+          return this.language;
+        },
+        set lang(lang) {
+          this.language = lang;
+        },
+      };
+      console.log(user.lang); // getter access lang as en
+      user.lang = 'fr';
+      console.log(user.lang); // setter used to set lang as fr
+      ```
+
+105.  How do you define property on Object constructor
+
+      The Object.defineProperty() static method is used to define a new property directly on an object, or modify an existing property on an object, and returns the object. Let's see an example to know how to define property,
+
+      ```javascript
+      const newObject = {};
+
+      Object.defineProperty(newObject, 'newProperty', {
+        value: 100,
+        writable: false,
+      });
+
+      console.log(newObject.newProperty); // 100
+
+      newObject.newProperty = 200; // It throws an error in strict mode due to writable setting
+      ```
+
+106.  What is the difference between get and defineProperty?
+
+      Both have similar results until unless you use classes. If you use get the property will be defined on the prototype of the object whereas using Object.defineProperty() the property will be defined on the instance it is applied to.
+
+107.  What are the advantages of Getters and Setters?
+
+      Below are the list of benefits of Getters and Setters,
+
+      1.  They provide simpler syntax
+      2.  They are used for defining computed properties, or accessors in JS.
+      3.  Useful to provide equivalence relation between properties and methods
+      4.  They can provide better data quality
+      5.  Useful for doing things behind the scenes with the encapsulated logic.
+
+108.  Can I add getters and setters using defineProperty method?
+
+      Yes, You can use the `Object.defineProperty()` method to add Getters and Setters. For example, the below counter object uses increment, decrement, add and subtract properties,
+
+      ```javascript
+      var obj = { counter: 0 };
+
+      // Define getters
+      Object.defineProperty(obj, 'increment', {
+        get: function () {
+          this.counter++;
+        },
+      });
+      Object.defineProperty(obj, 'decrement', {
+        get: function () {
+          this.counter--;
+        },
+      });
+
+      // Define setters
+      Object.defineProperty(obj, 'add', {
+        set: function (value) {
+          this.counter += value;
+        },
+      });
+      Object.defineProperty(obj, 'subtract', {
+        set: function (value) {
+          this.counter -= value;
+        },
+      });
+
+      obj.add = 10;
+      obj.subtract = 5;
+      console.log(obj.increment); //6
+      console.log(obj.decrement); //5
+      ```
+
+109.  What are the function parameter rules?
+
+      JavaScript functions follow below rules for parameters,
+
+      1. The function definitions do not specify data types for parameters.
+      2. Do not perform type checking on the passed arguments.
+      3. Do not check the number of arguments received.
+
+      i.e, The below function follows the above rules,
+
+      ```javascript
+      function functionName(parameter1, parameter2, parameter3) {
+        console.log(parameter1); // 1
+      }
+      functionName(1);
+      ```
+
+110.  What is an error object?
+
+      An error object is a built in error object that provides error information when an error occurs. It has two properties: name and message. For example, the below function logs error details,
+
+      ```javascript
+      try {
+        greeting('Welcome');
+      } catch (err) {
+        console.log(err.name + '<br>' + err.message);
+      }
+      ```
