@@ -30,9 +30,9 @@ const sidebars = {
       ],
     },
     {
-      type: 'doc',
-      id: 'languages/java',
+      type: 'category',
       label: 'Java',
+      items: ['languages/java/index', 'languages/java/maven'],
     },
   ],
   reactSidebar: [
