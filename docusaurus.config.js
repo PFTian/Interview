@@ -53,7 +53,7 @@ const config = {
             type: 'doc',
             docId: 'languages/javascript/index',
             position: 'left',
-            label: 'Languages'
+            label: 'Languages',
           },
           {
             type: 'doc',
@@ -69,9 +69,15 @@ const config = {
           },
           {
             type: 'doc',
+            docId: 'devops/k8s',
+            position: 'left',
+            label: 'DevOps',
+          },
+          {
+            type: 'doc',
             docId: 'others/REST',
             position: 'left',
-            label: 'Others'
+            label: 'Others',
           },
           {
             href: 'https://github.com/PFTian/Interview',

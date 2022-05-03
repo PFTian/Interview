@@ -35,6 +35,7 @@ const sidebars = {
       items: ['languages/java/index', 'languages/java/maven'],
     },
   ],
+
   reactSidebar: [
     {
       type: 'category',
@@ -57,6 +58,7 @@ const sidebars = {
       items: ['react/redux/questions'],
     },
   ],
+
   javaSpringBootSidebar: [
     {
       type: 'category',
@@ -64,6 +66,15 @@ const sidebars = {
       items: ['java-spring-boot/questions'],
     },
   ],
+
+  devopsSidebar: [
+    {
+      type: 'doc',
+      id: 'devops/k8s',
+      label: 'Kubernetes',
+    },
+  ],
+
   otherSidebar: [
     {
       type: 'doc',
